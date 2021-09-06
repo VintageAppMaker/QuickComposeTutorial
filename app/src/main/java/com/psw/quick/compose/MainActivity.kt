@@ -3,6 +3,7 @@ package com.psw.quick.compose
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Divider
@@ -16,6 +17,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import coil.compose.rememberImagePainter
+import coil.transform.CircleCropTransformation
 import com.psw.quick.compose.ui.theme.QuickComposeTutorialTheme
 
 
@@ -61,6 +64,24 @@ private fun basic_layout() {
         horizontalAlignment = Alignment.CenterHorizontally, // Alignment이다.
         verticalArrangement = Arrangement.Center            // Arrangement이다.
     ) {
+        // Basic
+        Image(
+            painter = rememberImagePainter("https://image.api.playstation.com/vulcan/ap/rnd/202103/0200/9RHJbZ83bo1d61vdHe9NWxhl.png"),
+            contentDescription = null,
+            modifier = Modifier.fillMaxWidth()
+        )
+
+        // Advanced
+        Image(
+            painter = rememberImagePainter(
+                data = "https://image.api.playstation.com/vulcan/ap/rnd/202103/0200/9RHJbZ83bo1d61vdHe9NWxhl.png",
+                builder = {
+                    transformations(CircleCropTransformation())
+                }
+            ),
+            contentDescription = null,
+            modifier = Modifier.size(128.dp)
+        )
         TextOut("hi, this is test")
         Divider(
             color = Color.Transparent,
