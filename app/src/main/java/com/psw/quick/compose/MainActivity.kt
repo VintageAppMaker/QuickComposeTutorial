@@ -80,7 +80,9 @@ private fun basic_layout() {
                 }
             ),
             contentDescription = null,
-            modifier = Modifier.size(128.dp)
+            modifier = Modifier
+                .size(84.dp)
+                .padding(16.dp)
         )
         TextOut("hi, this is test")
         Divider(
