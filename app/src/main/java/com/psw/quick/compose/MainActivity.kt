@@ -34,6 +34,10 @@ class MainActivity : ComponentActivity() {
         }
     }
 
+    private fun toast(s : String ){
+        Toast.makeText(this, s, Toast.LENGTH_LONG).show()
+    }
+
     @Composable
     private fun basic_layout() {
         // linearlayout과 유사 orientation vertical
@@ -79,7 +83,11 @@ class MainActivity : ComponentActivity() {
                     .padding(top = 20.dp, start = 16.dp, end = 16.dp, bottom = 20.dp)
                     .fillMaxHeight(0.4f)     // %를 설정하여 채우기를 조절가능
             ) {
-                ButtonMake(title = "clcik me", {})
+                ButtonMake(title = "clcik me", {
+                    Intent(this@MainActivity, XMLActivity::class.java)?.apply {
+                        startActivity(this)
+                    }
+                })
             }
         }
     }
@@ -110,7 +118,6 @@ class MainActivity : ComponentActivity() {
     fun testMain(){
         basic_layout()
     }
-
 
 }
 
