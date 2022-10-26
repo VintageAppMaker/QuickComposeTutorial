@@ -11,7 +11,10 @@ import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
@@ -21,6 +24,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberImagePainter
+import coil.size.Scale
 import coil.transform.CircleCropTransformation
 import com.psw.quick.compose.ui.theme.QuickComposeTutorialTheme
 
@@ -32,7 +36,7 @@ class MainActivity : ComponentActivity() {
             QuickComposeTutorialTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(color = MaterialTheme.colors.background) {
-                    testMain()
+                    ComposeMain()
                 }
             }
         }
@@ -45,27 +49,65 @@ class MainActivity : ComponentActivity() {
     @Composable
     private fun main_layout() {
         val scrollState = rememberScrollState()
-        Column(
-            Modifier
-                .verticalScroll(scrollState) // scroll 관리
-                .background(Color.White)
-                .fillMaxWidth()    // %를 설정하여 채우기를 조절가능
-                .wrapContentHeight(),  // %를 설정하여 채우기를 조절가능
-            
-            horizontalAlignment = Alignment.CenterHorizontally, // Alignment이다.
-            verticalArrangement = Arrangement.Center            // Arrangement이다.
-        ) {
+
+        Box(modifier = Modifier
+            .fillMaxHeight()
+            .fillMaxWidth()
+            .background(Color.White)){
+            Column(
+                Modifier
+                    .verticalScroll(scrollState) // scroll 관리
+                    .background(Color.White)
+                    .fillMaxWidth()    // %를 설정하여 채우기를 조절가능
+                    //.wrapContentHeight(),  // %를 설정하여 채우기를 조절가능
+                    .fillMaxHeight(),
+
+                horizontalAlignment = Alignment.CenterHorizontally, // Alignment이다.
+                verticalArrangement = Arrangement.Center            // Arrangement이다.
+            ) {
 
 
-            Header("예제 리스트")
+                Header("예제 리스트")
 
-            (0..10).forEach {
-                CardView("테스트", "설명입니다.", {
-                    Intent(this@MainActivity, XMLActivity::class.java)?.apply {
-                    startActivity(this)
-                }})
+                Box(modifier = Modifier
+                    .fillMaxWidth()
+                    .height(320.dp)
+                    .background(Color(0xff000000))){
+                    Image(
+                        modifier = Modifier.fillMaxWidth().fillMaxHeight(),
+                        painter = painterResource(id = R.drawable.ic_launcher_foreground),
+                        contentDescription = null, // decorative element
+                        contentScale = ContentScale.FillBounds
+                    )
+
+                    Text(
+                        buildAnnotatedString {
+
+                            withStyle(style = SpanStyle(color = Color.Red)
+                            ) {
+                                append("Compose 예제\n")
+                            }
+
+                            withStyle(style = SpanStyle(color = Color(0xFFa3aaB8))
+                            ) {
+
+                                append("빠르게 시작하기 ")
+                            }
+                        },
+
+                        Modifier.align(Alignment.BottomEnd)
+
+                    )
+                }
+
+                Spacer(Modifier.height(30.dp))
+
+                CardView("Box", "Flutter의 Container + Stack 기능.\n배경색 설정 및 위치지정 ", {
+                    Intent(this@MainActivity, ComposeBasicExampleActivity::class.java)?.apply {
+                        startActivity(this)
+                    }})
+
             }
-
         }
     }
 
@@ -161,16 +203,9 @@ class MainActivity : ComponentActivity() {
 
     @Composable
     @Preview(showBackground = true)
-    fun testMain(){
+    fun ComposeMain(){
         main_layout()
     }
 
 }
 
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    QuickComposeTutorialTheme {
-        //testMain()
-    }
-}
