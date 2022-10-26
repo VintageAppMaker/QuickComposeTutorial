@@ -102,7 +102,7 @@ class MainActivity : ComponentActivity() {
 
                 Spacer(Modifier.height(30.dp))
 
-                CardView("Box", "Flutter의 Container + Stack 기능.\n배경색 설정 및 위치지정 ", {
+                CardView("Box", getString(R.string.example_1), {
                     Intent(this@MainActivity, ComposeBasicExampleActivity::class.java)?.apply {
                         startActivity(this)
                     }})

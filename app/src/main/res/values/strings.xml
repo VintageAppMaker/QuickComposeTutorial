@@ -1,4 +1,12 @@
 <resources>
     <string name="app_name">QuickComposeTutorial</string>
     <string name="title_activity_compose_example">ComposeExampleActivity</string>
+
+    <string name="example_1">
+Box\n
+1. Container 역할\n
+2. 배경색, padding, child 위치 설정\n
+
+    </string>
+
 </resources>
