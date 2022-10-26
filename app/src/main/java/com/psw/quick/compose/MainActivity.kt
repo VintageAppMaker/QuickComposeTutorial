@@ -5,17 +5,21 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
+import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import coil.compose.rememberImagePainter
 import coil.transform.CircleCropTransformation
 import com.psw.quick.compose.ui.theme.QuickComposeTutorialTheme
@@ -39,84 +43,126 @@ class MainActivity : ComponentActivity() {
     }
 
     @Composable
-    private fun basic_layout() {
-        // linearlayout과 유사 orientation vertical
+    private fun main_layout() {
+        val scrollState = rememberScrollState()
         Column(
             Modifier
-                .background(Color.Blue)
+                .verticalScroll(scrollState) // scroll 관리
+                .background(Color.White)
                 .fillMaxWidth()    // %를 설정하여 채우기를 조절가능
                 .wrapContentHeight(),  // %를 설정하여 채우기를 조절가능
+            
             horizontalAlignment = Alignment.CenterHorizontally, // Alignment이다.
             verticalArrangement = Arrangement.Center            // Arrangement이다.
         ) {
-            // Basic
-            Image(
-                painter = rememberImagePainter("https://image.api.playstation.com/vulcan/ap/rnd/202103/0200/9RHJbZ83bo1d61vdHe9NWxhl.png"),
-                contentDescription = null,
-                modifier = Modifier.fillMaxWidth()
-            )
 
-            // Advanced
-            Image(
-                painter = rememberImagePainter(
-                    data = "https://image.api.playstation.com/vulcan/ap/rnd/202103/0200/9RHJbZ83bo1d61vdHe9NWxhl.png",
-                    builder = {
-                        transformations(CircleCropTransformation())
-                    }
-                ),
-                contentDescription = null,
-                modifier = Modifier
-                    .size(84.dp)
-                    .padding(16.dp)
-            )
-            TextOut("hi, this is test")
-            Divider(
-                color = Color.Transparent,
-                thickness = 10.dp
-            ) // 구분선
-            TextOut("Next line")
 
-            Row(
-                Modifier
-                    .background(Color.Yellow)
-                    // margin이 없다. padding을 두번 활용해야 한다.
-                    .padding(top = 20.dp, start = 16.dp, end = 16.dp, bottom = 20.dp)
-                    .fillMaxHeight(0.4f)     // %를 설정하여 채우기를 조절가능
-            ) {
-                ButtonMake(title = "clcik me", {
+            Header("예제 리스트")
+
+            (0..10).forEach {
+                CardView("테스트", "설명입니다.", {
                     Intent(this@MainActivity, XMLActivity::class.java)?.apply {
-                        startActivity(this)
+                    startActivity(this)
+                }})
+            }
+
+        }
+    }
+
+    @Composable
+    fun CardView(title: String, desc : String, fnClick : ()-> Unit = {} ) {
+        Card(
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(15.dp)
+                .clickable {
+                    fnClick()
+                },
+            elevation = 10.dp,
+            backgroundColor = Color.White
+        ) {
+            Column(
+                modifier = Modifier.padding(15.dp)
+
+            ) {
+                Row(){
+
+                    Image(
+                        painter = rememberImagePainter(
+                            data = "https://3.bp.blogspot.com/-VVp3WvJvl84/X0Vu6EjYqDI/AAAAAAAAPjU/ZOMKiUlgfg8ok8DY8Hc-ocOvGdB0z86AgCLcBGAsYHQ/s1600/jetpack%2Bcompose%2Bicon_RGB.png",
+                            builder = {
+                                transformations(CircleCropTransformation())
+                            }
+                        ),
+                        contentDescription = null,
+                        modifier = Modifier
+                            .size(50.dp)
+                            .padding(2.dp)
+                    )
+
+                    Spacer(Modifier.width(10.0.dp))
+
+                    Text(
+                        buildAnnotatedString {
+
+                            withStyle(style = SpanStyle(fontWeight = FontWeight.W900, color = Color.Black)
+                            ) {
+                                append("제목: ")
+                            }
+
+                            withStyle(style = SpanStyle(fontWeight = FontWeight.W900, color = Color(0xFF4552B8))
+                            ) {
+
+                                append("${title}")
+                            }
+                        },
+
+                        Modifier.align(Alignment.CenterVertically)
+
+                    )
+                }
+
+                Spacer(Modifier.height(20.0.dp))
+
+
+                Text(
+                    buildAnnotatedString {
+                        withStyle(style = SpanStyle(fontWeight = FontWeight.W900, color = Color.Black)
+                        ) {
+                            append("설명: ")
+                        }
+
+                        withStyle(style = SpanStyle(fontWeight = FontWeight.W900, color = Color.Gray)
+                        ) {
+                            append("$desc")
+                        }
+
                     }
-                })
+                )
             }
         }
     }
 
     @Composable
-    fun TextOut(message: String) {
+    fun Header(message: String) {
+        val backColor = Color(android.graphics.Color.parseColor("#993333") )
         Text(
             modifier = Modifier
                 .fillMaxWidth()             // width
-                .background(Color.Red),     // 백그라운드
+                .background(backColor),     // 백그라운드
             color = Color(android.graphics.Color.parseColor("#efefef") ),             // 색상
             text  = "$message!",         // text
-            textAlign = TextAlign.Center    // Align
+            textAlign = TextAlign.Center,
+            fontSize = 30.sp
         )
     }
 
-    @Composable
-    fun ButtonMake ( title : String, onClick : () -> Unit = {}){
-        Button(onClick = onClick) {
-            Text(
-                title,
-                color = Color.Gray
-            )
-        }
-    }
+
 
     @Composable
+    @Preview(showBackground = true)
     fun testMain(){
-        basic_layout()
+        main_layout()
     }
 
 }
