@@ -1,4 +1,4 @@
-package com.psw.quick.compose
+package com.psw.quick.compose.ui
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -12,13 +12,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.psw.quick.compose.ui.theme.QuickComposeTutorialTheme
 
-class ComposeBasicExampleActivity : ComponentActivity() {
+class ComposeExampleBoxActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -33,52 +32,55 @@ class ComposeBasicExampleActivity : ComponentActivity() {
             }
         }
     }
-}
 
+    @Preview(showBackground = true)
+    @Composable
+    fun DefaultPreview() {
+        QuickComposeTutorialTheme {
+            ExampleMain()
+        }
+    }
 
-@Composable
-fun ExampleMain(
-) {
-
-    Box(modifier = Modifier
-        .padding(10.dp)
-        .fillMaxWidth()
-        .fillMaxHeight()
-        .background(Color.Cyan)) {
+    @Composable
+    fun ExampleMain(
+    ) {
 
         Box(modifier = Modifier
-            .padding(20.dp)
+            .padding(10.dp)
             .fillMaxWidth()
             .fillMaxHeight()
-            .background(Color.Red)) {
+            .background(Color.Cyan)) {
 
             Box(modifier = Modifier
-                .padding(30.dp)
+                .padding(20.dp)
                 .fillMaxWidth()
                 .fillMaxHeight()
-                .background(Color.White)) {
+                .background(Color.Red)) {
 
-                Text("😀", modifier = Modifier.align(Alignment.TopStart))
-                Text("😀", modifier = Modifier.align(Alignment.TopCenter))
-                Text("😀", modifier = Modifier.align(Alignment.TopEnd))
-                Text("🐯", modifier = Modifier.align(Alignment.Center), fontSize = 90.sp)
-                Text("😀", modifier = Modifier.align(Alignment.BottomStart))
-                Text("😀", modifier = Modifier.align(Alignment.BottomCenter))
-                Text("😀", modifier = Modifier.align(Alignment.BottomEnd))
+                Box(modifier = Modifier
+                    .padding(30.dp)
+                    .fillMaxWidth()
+                    .fillMaxHeight()
+                    .background(Color.White)) {
+
+                    Text("😀", modifier = Modifier.align(Alignment.TopStart))
+                    Text("😀", modifier = Modifier.align(Alignment.TopCenter))
+                    Text("😀", modifier = Modifier.align(Alignment.TopEnd))
+                    Text("🐯", modifier = Modifier.align(Alignment.Center), fontSize = 90.sp)
+                    Text("😀", modifier = Modifier.align(Alignment.BottomStart))
+                    Text("😀", modifier = Modifier.align(Alignment.BottomCenter))
+                    Text("😀", modifier = Modifier.align(Alignment.BottomEnd))
+
+                }
 
             }
 
         }
 
     }
-
 }
 
 
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview2() {
-    QuickComposeTutorialTheme {
-        ExampleMain()
-    }
-}
+
+
+

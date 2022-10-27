@@ -1,12 +1,24 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">QuickComposeTutorial</string>
     <string name="title_activity_compose_example">ComposeExampleActivity</string>
 
     <string name="example_1">
-Box\n
+#1 Box\n
 1. Container 역할\n
 2. 배경색, padding, child 위치 설정\n
+    </string>
 
+    <string name="example_2" tools:ignore="ExtraTranslation">
+#2 Column, Row\n
+1. Column: 세로로 View를 순서대로 배치\n
+2. Row: 가로로 View를 순서대로 배치\n
+3. Scroll을 가능하게 하려면\n
+   horizontalScroll이나 verticalScroll에\n
+   rememberScrollState()를 넘겨주어야 한다.
+
+    </string>
+
+    <string name="title_activity_compose_example_row_col_main">ComposeExampleRowColMainActivity
     </string>
 
 </resources>

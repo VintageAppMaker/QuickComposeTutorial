@@ -11,7 +11,6 @@ import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
@@ -24,8 +23,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberImagePainter
-import coil.size.Scale
 import coil.transform.CircleCropTransformation
+import com.psw.quick.compose.ui.ComposeExampleBoxActivity
+import com.psw.quick.compose.ui.ComposeExampleRowColMainActivity
 import com.psw.quick.compose.ui.theme.QuickComposeTutorialTheme
 
 
@@ -102,13 +102,23 @@ class MainActivity : ComponentActivity() {
 
                 Spacer(Modifier.height(30.dp))
 
-                CardView("Box", getString(R.string.example_1), {
-                    Intent(this@MainActivity, ComposeBasicExampleActivity::class.java)?.apply {
-                        startActivity(this)
-                    }})
+                buildCardList()
 
             }
         }
+    }
+
+    @Composable
+    fun buildCardList(){
+        CardView("#1 Box", resources.getString(R.string.example_1), {
+            Intent(this@MainActivity, ComposeExampleBoxActivity::class.java)?.apply {
+                startActivity(this)
+            }})
+
+        CardView("#2 Row, Column", resources.getString(R.string.example_2), {
+            Intent(this@MainActivity, ComposeExampleRowColMainActivity::class.java)?.apply {
+                startActivity(this)
+            }})
     }
 
     @Composable
