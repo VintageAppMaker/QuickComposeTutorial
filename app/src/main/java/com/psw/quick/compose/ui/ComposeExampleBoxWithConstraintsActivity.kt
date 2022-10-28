@@ -121,9 +121,9 @@ class ComposeExampleBoxWithConstraintsActivity : ComponentActivity() {
         Row{
             Box(
                 Modifier
-                    .background(Color.Red)
-                    .width(100.dp)
+                    .weight(1.0f)
                     .height(100.dp)
+                    .background(Color.Red)
             )
 
             Box(

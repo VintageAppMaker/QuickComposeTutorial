@@ -31,6 +31,13 @@
 
     </string>
 
+    <string name="example_5" tools:ignore="ExtraTranslation">
+#5 Shape \n
+1. Modifier의 clip()메소드 파라메터로 넘김\n
+2. CircleShape, RoundedCornerShape 주로 사용됨
+
+    </string>
+
     <string name="title_activity_compose_example_row_col_main">ComposeExampleRowColMainActivity
     </string>
 

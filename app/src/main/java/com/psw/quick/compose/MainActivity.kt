@@ -24,10 +24,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberImagePainter
 import coil.transform.CircleCropTransformation
-import com.psw.quick.compose.ui.ComposeExampleBoxActivity
-import com.psw.quick.compose.ui.ComposeExampleBoxWithConstraintsActivity
-import com.psw.quick.compose.ui.ComposeExampleConstraintsActivity
-import com.psw.quick.compose.ui.ComposeExampleRowColActivity
+import com.psw.quick.compose.ui.*
 import com.psw.quick.compose.ui.theme.QuickComposeTutorialTheme
 
 
@@ -129,6 +126,11 @@ class MainActivity : ComponentActivity() {
 
         CardView("#4 BoxWithConstraints", resources.getString(R.string.example_4), {
             Intent(this@MainActivity, ComposeExampleBoxWithConstraintsActivity::class.java)?.apply {
+                startActivity(this)
+            }})
+
+        CardView("#5 Shape", resources.getString(R.string.example_5), {
+            Intent(this@MainActivity, ComposeExampleShapeActivity::class.java)?.apply {
                 startActivity(this)
             }})
     }
