@@ -9,6 +9,8 @@ import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -73,7 +75,9 @@ class MainActivity : ComponentActivity() {
                     .height(320.dp)
                     .background(Color(0xff000000))){
                     Image(
-                        modifier = Modifier.fillMaxWidth().fillMaxHeight(),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .fillMaxHeight(),
                         painter = painterResource(id = R.drawable.ic_launcher_foreground),
                         contentDescription = null, // decorative element
                         contentScale = ContentScale.FillBounds
@@ -109,41 +113,37 @@ class MainActivity : ComponentActivity() {
 
     @Composable
     fun buildCardList(){
-        CardView("#1 Box", resources.getString(R.string.example_1), {
-            Intent(this@MainActivity, ComposeExampleBoxActivity::class.java)?.apply {
-                startActivity(this)
-            }})
+        CardView("#1 Box", resources.getString(R.string.example_1),
+            ComposeExampleBoxActivity::class.java, "example_1.html")
 
-        CardView("#2 Row, Column", resources.getString(R.string.example_2), {
-            Intent(this@MainActivity, ComposeExampleRowColActivity::class.java)?.apply {
-                startActivity(this)
-            }})
+        CardView("#2 Row, Column", resources.getString(R.string.example_2),
+            ComposeExampleRowColActivity::class.java, "example_2.html")
 
-        CardView("#3 ConstraintLayout", resources.getString(R.string.example_3), {
-            Intent(this@MainActivity, ComposeExampleConstraintsActivity::class.java)?.apply {
-                startActivity(this)
-            }})
+        CardView("#3 ConstraintLayout", resources.getString(R.string.example_3),
+            ComposeExampleConstraintsActivity::class.java, "example_3.html")
 
-        CardView("#4 BoxWithConstraints", resources.getString(R.string.example_4), {
-            Intent(this@MainActivity, ComposeExampleBoxWithConstraintsActivity::class.java)?.apply {
-                startActivity(this)
-            }})
+        CardView("#4 BoxWithConstraints", resources.getString(R.string.example_4),
+            ComposeExampleBoxWithConstraintsActivity::class.java, "example_4.html")
 
-        CardView("#5 Shape", resources.getString(R.string.example_5), {
-            Intent(this@MainActivity, ComposeExampleShapeActivity::class.java)?.apply {
-                startActivity(this)
-            }})
+        CardView("#5 Shape", resources.getString(R.string.example_5),
+            ComposeExampleSourceViewActivity::class.java, "example_5.html"
+        )
     }
 
+
+
     @Composable
-    fun CardView(title: String, desc : String, fnClick : ()-> Unit = {} ) {
+    fun CardView(title: String, desc : String, clsLaunch: Class<*>, launchFile : String  ) {
+
+        val openDialog = remember { mutableStateOf(false)  }
+
         Card(
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(15.dp)
-                .clickable {
-                    fnClick()
-                },
+                .clickable(onClick = {
+                    openDialog.value = true
+                }),
             elevation = 10.dp,
             backgroundColor = Color.White
         ) {
@@ -207,6 +207,48 @@ class MainActivity : ComponentActivity() {
                 )
             }
         }
+
+        if(openDialog.value){
+            AlertDialog(
+                backgroundColor = Color.White.copy(alpha = 0.9f),
+                onDismissRequest = {
+                    openDialog.value = false
+                },
+                title = {
+                    Text(text = "선택", color = Color.Gray)
+                },
+                text = {
+                    Text("예제실행 및 소스보기", color = Color.Gray)
+                },
+                confirmButton = {
+                    Button(
+                        colors = ButtonDefaults.buttonColors(backgroundColor = Color.Red),
+                        onClick = {
+                            openDialog.value = false
+                            Intent(this@MainActivity, clsLaunch).apply {
+                                startActivity(this)
+                            }
+                        }) {
+                        Text("예제실행", color = Color.White)
+                    }
+                },
+                dismissButton = {
+                    Button(
+                        colors = ButtonDefaults.buttonColors(backgroundColor = Color.White),
+                        onClick = {
+                            openDialog.value = false
+                            Intent(this@MainActivity, ComposeExampleSourceViewActivity::class.java).apply {
+                                putExtra("file", launchFile)
+                                startActivity(this)
+                            }
+                        }) {
+                        Text("소스보기", color = Color.Black)
+                    }
+                }
+            )
+
+        }
+
     }
 
     @Composable
