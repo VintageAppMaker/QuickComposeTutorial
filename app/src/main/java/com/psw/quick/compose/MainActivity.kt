@@ -126,7 +126,7 @@ class MainActivity : ComponentActivity() {
             ComposeExampleBoxWithConstraintsActivity::class.java, "example_4.html")
 
         CardView("#5 Shape", resources.getString(R.string.example_5),
-            ComposeExampleSourceViewActivity::class.java, "example_5.html"
+            ComposeExampleShapeActivity::class.java, "example_5.html"
         )
     }
 
