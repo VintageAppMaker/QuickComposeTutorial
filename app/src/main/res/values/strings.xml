@@ -18,6 +18,13 @@
 
     </string>
 
+    <string name="example_3" tools:ignore="ExtraTranslation">
+#3 ConstraintLayout\n
+1. ConstraintLayout:\n기존의 ConstraintLayout과 유사함\n
+2. app Gradle에 라이브러리 추가해야 함.
+
+    </string>
+
     <string name="title_activity_compose_example_row_col_main">ComposeExampleRowColMainActivity
     </string>
 

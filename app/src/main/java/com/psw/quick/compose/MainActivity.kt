@@ -25,6 +25,7 @@ import androidx.compose.ui.unit.sp
 import coil.compose.rememberImagePainter
 import coil.transform.CircleCropTransformation
 import com.psw.quick.compose.ui.ComposeExampleBoxActivity
+import com.psw.quick.compose.ui.ComposeExampleConstraintsActivity
 import com.psw.quick.compose.ui.ComposeExampleRowColMainActivity
 import com.psw.quick.compose.ui.theme.QuickComposeTutorialTheme
 
@@ -119,6 +120,11 @@ class MainActivity : ComponentActivity() {
             Intent(this@MainActivity, ComposeExampleRowColMainActivity::class.java)?.apply {
                 startActivity(this)
             }})
+
+        CardView("#3 ConstraintLayout, BoxWithConstraints", resources.getString(R.string.example_3), {
+            Intent(this@MainActivity, ComposeExampleConstraintsActivity::class.java)?.apply {
+                startActivity(this)
+            }})
     }
 
     @Composable
@@ -157,7 +163,7 @@ class MainActivity : ComponentActivity() {
                     Text(
                         buildAnnotatedString {
 
-                            withStyle(style = SpanStyle(fontWeight = FontWeight.W900, color = Color.Black)
+                            withStyle(style = SpanStyle(fontWeight = FontWeight.Normal, color = Color.Black)
                             ) {
                                 append("제목: ")
                             }
@@ -179,12 +185,12 @@ class MainActivity : ComponentActivity() {
 
                 Text(
                     buildAnnotatedString {
-                        withStyle(style = SpanStyle(fontWeight = FontWeight.W900, color = Color.Black)
+                        withStyle(style = SpanStyle(fontWeight = FontWeight.Normal, color = Color.Black)
                         ) {
                             append("설명: ")
                         }
 
-                        withStyle(style = SpanStyle(fontWeight = FontWeight.W900, color = Color.Gray)
+                        withStyle(style = SpanStyle(fontWeight = FontWeight.Normal, color = Color.Gray)
                         ) {
                             append("$desc")
                         }
