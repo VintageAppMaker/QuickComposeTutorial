@@ -8,6 +8,7 @@ import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.material.Divider
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
@@ -20,7 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.psw.quick.compose.ui.theme.QuickComposeTutorialTheme
 
-class ComposeExampleRowColMainActivity : ComponentActivity() {
+class ComposeExampleRowColActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -86,6 +87,41 @@ class ComposeExampleRowColMainActivity : ComponentActivity() {
                     .background(if (item % 2 == 0) Color.Yellow else Color.DarkGray)){
                     Text(text = "$indx", modifier = Modifier.align(Alignment.Center))
                 } }
+            }
+
+            //  weight()로 비율설정
+            //  wrapContentWidth()로 widt 설정
+            //  매우중요!!-> height(IntrinsicSize.Max)로
+            //  Row안의 View의 height를 Row의 height 설정
+            Row(modifier = Modifier
+                .background(Color.White)
+                .height(IntrinsicSize.Max)
+                .fillMaxWidth()) {
+                Text(
+                    modifier = Modifier
+                        .weight(1f)
+                        .padding(start = 4.dp)
+                        .wrapContentWidth(Alignment.Start),
+                    color = Color.Black,
+                    text = "Left"
+                )
+
+                Divider(
+                    color = Color.Black,
+                    modifier = Modifier.fillMaxHeight().width(1.dp)
+                )
+
+                // 이곳이 제일크다. 결국 Row의 IntrinsicSize.Max는 100
+                Box(modifier = Modifier.width(100.dp).height(100.dp).background(Color.Black))
+
+                Text(
+                    modifier = Modifier
+                        .weight(0.2f)
+                        .padding(end = 4.dp)
+                        .wrapContentWidth(Alignment.End),
+                    color = Color.Black,
+                    text = "Right"
+                )
             }
 
         }

@@ -12,13 +12,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.QuickComposeTutorial">
         <activity
+            android:name=".ui.ComposeExampleBoxWithConstraintsActivity"
+            android:exported="false"
+            android:label="@string/title_activity_compose_example_row_col_main"
+            android:theme="@style/Theme.QuickComposeTutorial" />
+
+        <activity
             android:name=".ui.ComposeExampleConstraintsActivity"
             android:exported="false"
             android:label="@string/title_activity_compose_example_row_col_main"
             android:theme="@style/Theme.QuickComposeTutorial" />
 
         <activity
-            android:name=".ui.ComposeExampleRowColMainActivity"
+            android:name=".ui.ComposeExampleRowColActivity"
             android:exported="false"
             android:label="@string/title_activity_compose_example_row_col_main"
             android:theme="@style/Theme.QuickComposeTutorial" />

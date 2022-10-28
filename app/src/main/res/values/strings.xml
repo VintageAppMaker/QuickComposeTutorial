@@ -24,6 +24,12 @@
 2. app Gradle에 라이브러리 추가해야 함.
 
     </string>
+    <string name="example_4" tools:ignore="ExtraTranslation">
+#4 BoxWithConstraints \n
+1. Flutter의 layout과 유사함\n
+2. 부모 Size 정보를 가져와 반응형으로 처리가능.
+
+    </string>
 
     <string name="title_activity_compose_example_row_col_main">ComposeExampleRowColMainActivity
     </string>
