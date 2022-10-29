@@ -13,38 +13,37 @@
         android:theme="@style/Theme.QuickComposeTutorial">
 
         <activity
+            android:name=".ui.ComposeExampleTextActivity"
+            android:exported="false"
+            android:theme="@style/Theme.QuickComposeTutorial" />
+
+        <activity
             android:name=".ui.ComposeExampleSourceViewActivity"
             android:exported="false"
-            android:label="@string/title_activity_compose_example_row_col_main"
             android:theme="@style/Theme.QuickComposeTutorial" />
 
         <activity
             android:name=".ui.ComposeExampleShapeActivity"
             android:exported="false"
-            android:label="@string/title_activity_compose_example_row_col_main"
             android:theme="@style/Theme.QuickComposeTutorial" />
 
         <activity
             android:name=".ui.ComposeExampleBoxWithConstraintsActivity"
             android:exported="false"
-            android:label="@string/title_activity_compose_example_row_col_main"
             android:theme="@style/Theme.QuickComposeTutorial" />
 
         <activity
             android:name=".ui.ComposeExampleConstraintsActivity"
             android:exported="false"
-            android:label="@string/title_activity_compose_example_row_col_main"
             android:theme="@style/Theme.QuickComposeTutorial" />
 
         <activity
             android:name=".ui.ComposeExampleRowColActivity"
             android:exported="false"
-            android:label="@string/title_activity_compose_example_row_col_main"
             android:theme="@style/Theme.QuickComposeTutorial" />
         <activity
             android:name=".ui.ComposeExampleBoxActivity"
             android:exported="false"
-            android:label="@string/title_activity_compose_example"
             android:theme="@style/Theme.QuickComposeTutorial" />
         <activity
             android:name=".XMLActivity"
@@ -52,7 +51,6 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:label="@string/app_name"
             android:theme="@style/Theme.QuickComposeTutorial.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

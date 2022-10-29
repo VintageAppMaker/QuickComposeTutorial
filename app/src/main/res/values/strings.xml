@@ -38,6 +38,12 @@
 
     </string>
 
+    <string name="example_6" tools:ignore="ExtraTranslation">
+#6 Text \n
+1. 문자열 표시를 위한 기본 View\n
+
+    </string>
+
     <string name="title_activity_compose_example_row_col_main">ComposeExampleRowColMainActivity
     </string>
 

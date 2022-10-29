@@ -128,6 +128,10 @@ class MainActivity : ComponentActivity() {
         CardView("#5 Shape", resources.getString(R.string.example_5),
             ComposeExampleShapeActivity::class.java, "example_5.html"
         )
+
+        CardView("#6 Text", resources.getString(R.string.example_6),
+            ComposeExampleTextActivity::class.java, "example_6.html"
+        )
     }
 
 
