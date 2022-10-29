@@ -1,4 +1,4 @@
-package com.psw.quick.compose.ui
+package com.psw.quick.compose.ui.activity
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity

@@ -13,36 +13,41 @@
         android:theme="@style/Theme.QuickComposeTutorial">
 
         <activity
-            android:name=".ui.ComposeExampleTextActivity"
+            android:name=".ui.activity.ComposeExampleButtonImageActivity"
             android:exported="false"
             android:theme="@style/Theme.QuickComposeTutorial" />
 
         <activity
-            android:name=".ui.ComposeExampleSourceViewActivity"
+            android:name=".ui.activity.ComposeExampleTextActivity"
             android:exported="false"
             android:theme="@style/Theme.QuickComposeTutorial" />
 
         <activity
-            android:name=".ui.ComposeExampleShapeActivity"
+            android:name=".ui.activity.ComposeExampleSourceViewActivity"
             android:exported="false"
             android:theme="@style/Theme.QuickComposeTutorial" />
 
         <activity
-            android:name=".ui.ComposeExampleBoxWithConstraintsActivity"
+            android:name=".ui.activity.ComposeExampleShapeActivity"
             android:exported="false"
             android:theme="@style/Theme.QuickComposeTutorial" />
 
         <activity
-            android:name=".ui.ComposeExampleConstraintsActivity"
+            android:name=".ui.activity.ComposeExampleBoxWithConstraintsActivity"
             android:exported="false"
             android:theme="@style/Theme.QuickComposeTutorial" />
 
         <activity
-            android:name=".ui.ComposeExampleRowColActivity"
+            android:name=".ui.activity.ComposeExampleConstraintsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.QuickComposeTutorial" />
+
+        <activity
+            android:name=".ui.activity.ComposeExampleRowColActivity"
             android:exported="false"
             android:theme="@style/Theme.QuickComposeTutorial" />
         <activity
-            android:name=".ui.ComposeExampleBoxActivity"
+            android:name=".ui.activity.ComposeExampleBoxActivity"
             android:exported="false"
             android:theme="@style/Theme.QuickComposeTutorial" />
         <activity

@@ -44,7 +44,14 @@
 
     </string>
 
+    <string name="example_7" tools:ignore="ExtraTranslation">
+#7 Button, Image \n
+1. Button과 Image를 사용하는 기본 View\n
+
+    </string>
+
     <string name="title_activity_compose_example_row_col_main">ComposeExampleRowColMainActivity
     </string>
+
 
 </resources>

@@ -26,7 +26,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.rememberImagePainter
 import coil.transform.CircleCropTransformation
-import com.psw.quick.compose.ui.*
+import com.psw.quick.compose.ui.activity.*
 import com.psw.quick.compose.ui.theme.QuickComposeTutorialTheme
 
 
@@ -131,6 +131,10 @@ class MainActivity : ComponentActivity() {
 
         CardView("#6 Text", resources.getString(R.string.example_6),
             ComposeExampleTextActivity::class.java, "example_6.html"
+        )
+
+        CardView("#7 Button, Image", resources.getString(R.string.example_7),
+            ComposeExampleButtonImageActivity::class.java, "example_6.html"
         )
     }
 
