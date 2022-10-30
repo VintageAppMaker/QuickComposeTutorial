@@ -8,6 +8,7 @@ import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.Divider
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -55,11 +56,13 @@ class ComposeExampleRowColActivity : ComponentActivity() {
         // horizontalScroll이나 verticalScroll에
         // rememberScrollState()를 넘겨주어야 한다.
         val rowScr = rememberScrollState()
+        val colScr = rememberScrollState()
 
         Column(modifier = Modifier
             .padding(20.dp)
             .fillMaxWidth()
             .fillMaxHeight()
+            .verticalScroll(colScr)
             .background(Color.Blue)){
             (0..2).forEach { Box(modifier = Modifier
                 .padding(10.dp)
