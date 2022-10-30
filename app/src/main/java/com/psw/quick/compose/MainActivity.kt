@@ -136,6 +136,10 @@ class MainActivity : ComponentActivity() {
         CardView("#7 Button, Image", resources.getString(R.string.example_7),
             ComposeExampleButtonImageActivity::class.java, "example_7.html"
         )
+
+        CardView("#8 StateManagement", resources.getString(R.string.example_8),
+            ComposeExampleRemeberStateActivity::class.java, "example_8.html"
+        )
     }
 
 
