@@ -140,6 +140,10 @@ class MainActivity : ComponentActivity() {
         CardView("#8 StateManagement", resources.getString(R.string.example_8),
             ComposeExampleRemeberStateActivity::class.java, "example_8.html"
         )
+
+        CardView("#9 TextField", resources.getString(R.string.example_9),
+            ComposeExampleTextFieldActivity::class.java, "example_9.html"
+        )
     }
 
 
