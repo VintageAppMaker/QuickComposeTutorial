@@ -7,6 +7,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.Divider
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -14,9 +15,13 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.psw.quick.compose.ui.theme.QuickComposeTutorialTheme
 
 class ComposeExampleRowColActivity : ComponentActivity() {
@@ -122,9 +127,33 @@ class ComposeExampleRowColActivity : ComponentActivity() {
                 )
             }
 
+            // 범위를 겹치게 하기
+            overlapExample()
         }
-
     }
+
+    @Composable
+    fun overlapExample() {
+        Row(
+            modifier = Modifier
+                .wrapContentHeight()
+                .padding(20.dp), verticalAlignment = Alignment.CenterVertically
+        ) {
+
+            (0..4).forEach {
+                Box(modifier = Modifier.size(50.dp).background(Color.Red))
+                Box(
+                    modifier = Modifier
+                        .offset(x= -20.dp) // Box의 offset에 -값으로 이동
+                        .size(30.dp)
+                        .clip(CircleShape)
+                        .background(Color.White)
+                        .align(Alignment.CenterVertically)
+                ){Text("😁", modifier = Modifier.fillMaxSize(), textAlign = TextAlign.Center, style = TextStyle(color = Color.Red, fontSize = 15.sp))}
+            }
+        }
+    }
+
 }
 
 
