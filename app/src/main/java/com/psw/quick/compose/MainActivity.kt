@@ -144,6 +144,10 @@ class MainActivity : ComponentActivity() {
         CardView("#9 TextField", resources.getString(R.string.example_9),
             ComposeExampleTextFieldActivity::class.java, "example_9.html"
         )
+
+        CardView("#10 Scaffold", resources.getString(R.string.example_10),
+            ComposeExampleScaffoldActivity::class.java, "example_10.html"
+        )
     }
 
 

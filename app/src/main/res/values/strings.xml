@@ -67,6 +67,13 @@
 
     </string>
 
+    <string name="example_10" tools:ignore="ExtraTranslation">
+#10 Scaffold \n
+1. material Design을 위한 템플릿\n
+
+    </string>
+
+
     <string name="title_activity_compose_example_row_col_main">ComposeExampleRowColMainActivity
     </string>
 
