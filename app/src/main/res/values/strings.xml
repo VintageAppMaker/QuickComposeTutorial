@@ -73,6 +73,16 @@
 
     </string>
 
+    <string name="example_11" tools:ignore="ExtraTranslation">
+#11 Alert, BottomSheet dialog \n
+1. material Design(Scaffold) 기반\n
+2. rememberBottomSheetScaffoldState 사용\n
+3. rememberCoroutineScope 사용\n
+4. AlertDialog는 remember로 비교문처리\n
+
+
+    </string>
+
 
     <string name="title_activity_compose_example_row_col_main">ComposeExampleRowColMainActivity
     </string>

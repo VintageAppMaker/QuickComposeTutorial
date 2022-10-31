@@ -43,10 +43,6 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-    private fun toast(s : String ){
-        Toast.makeText(this, s, Toast.LENGTH_LONG).show()
-    }
-
     @Composable
     private fun main_layout() {
         val scrollState = rememberScrollState()
@@ -147,6 +143,10 @@ class MainActivity : ComponentActivity() {
 
         CardView("#10 Scaffold", resources.getString(R.string.example_10),
             ComposeExampleScaffoldActivity::class.java, "example_10.html"
+        )
+
+        CardView("#11 Alert, BottomSheet", resources.getString(R.string.example_11),
+            ComposeExampleAlertBottomSheetActivity::class.java, "example_11.html"
         )
     }
 

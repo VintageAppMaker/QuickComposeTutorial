@@ -13,6 +13,11 @@
         android:theme="@style/Theme.QuickComposeTutorial">
 
         <activity
+            android:name=".ui.activity.ComposeExampleAlertBottomSheetActivity"
+            android:exported="false"
+            android:theme="@style/Theme.QuickComposeTutorial" />
+
+        <activity
             android:name=".ui.activity.ComposeExampleScaffoldActivity"
             android:exported="false"
             android:theme="@style/Theme.QuickComposeTutorial" />
