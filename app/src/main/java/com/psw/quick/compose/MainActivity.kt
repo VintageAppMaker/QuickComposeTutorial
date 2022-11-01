@@ -68,12 +68,9 @@ class MainActivity : ComponentActivity() {
 
                 Box(modifier = Modifier
                     .fillMaxWidth()
-                    .height(320.dp)
-                    .background(Color(0xff000000))){
+                    .background(Color(0xff993333))){
                     Image(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .fillMaxHeight(),
+                        modifier = Modifier.aspectRatio(1.0f),
                         painter = painterResource(id = R.drawable.ic_launcher_foreground),
                         contentDescription = null, // decorative element
                         contentScale = ContentScale.FillBounds
@@ -147,6 +144,10 @@ class MainActivity : ComponentActivity() {
 
         CardView("#11 Alert, BottomSheet", resources.getString(R.string.example_11),
             ComposeExampleAlertBottomSheetActivity::class.java, "example_11.html"
+        )
+
+        CardView("#12 CheckBox, Dropdown menu", resources.getString(R.string.example_12),
+            ComposeExampleCheckBoxDropDownMenuActivity::class.java, "example_12.html"
         )
     }
 
@@ -273,7 +274,7 @@ class MainActivity : ComponentActivity() {
 
     @Composable
     fun Header(message: String) {
-        val backColor = Color(android.graphics.Color.parseColor("#993333") )
+        val backColor = Color(0xff993333)
         Text(
             modifier = Modifier
                 .fillMaxWidth()             // width
@@ -284,7 +285,6 @@ class MainActivity : ComponentActivity() {
             fontSize = 30.sp
         )
     }
-
 
 
     @Composable

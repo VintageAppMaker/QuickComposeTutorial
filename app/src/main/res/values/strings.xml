@@ -83,6 +83,13 @@
 
     </string>
 
+    <string name="example_12" tools:ignore="ExtraTranslation">
+#12 CheckBox, DropdownMenu \n
+1. CheckBox를 커스텀시 새롭게 만드는 것이 편함\n
+
+
+    </string>
+
 
     <string name="title_activity_compose_example_row_col_main">ComposeExampleRowColMainActivity
     </string>
