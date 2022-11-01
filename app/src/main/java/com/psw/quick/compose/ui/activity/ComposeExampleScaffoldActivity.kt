@@ -11,6 +11,8 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Call
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -135,23 +137,23 @@ class ComposeExampleScaffoldActivity : ComponentActivity() {
 
     @Composable
     fun bottomBarView(){
-        var selectedIndx = 0
+        var selectedIndx = remember{ mutableStateOf(0)}
         BottomNavigation(backgroundColor = themeColor){
             BottomNavigationItem(
                 icon = { Icon(imageVector = Icons.Filled.Add, contentDescription = "") },
                 label = { Text("add") },
-                selected = selectedIndx == 0,
+                selected = selectedIndx.value == 0,
                 onClick = {
-                    selectedIndx = 0
+                    selectedIndx.value = 0
                 }
             )
 
             BottomNavigationItem(
                 icon = { Icon(imageVector = Icons.Filled.Call, contentDescription = "") },
                 label = { Text("call") },
-                selected = selectedIndx == 1,
+                selected = selectedIndx.value == 1,
                 onClick = {
-                    selectedIndx = 1
+                    selectedIndx.value = 1
                 }
             )
         }
