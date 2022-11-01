@@ -90,6 +90,13 @@
 
     </string>
 
+    <string name="example_13" tools:ignore="ExtraTranslation">
+#13 Card, Animation \n
+1. Card 사용법 및 자주사용하는 Animation\n
+
+
+    </string>
+
 
     <string name="title_activity_compose_example_row_col_main">ComposeExampleRowColMainActivity
     </string>

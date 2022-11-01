@@ -149,6 +149,10 @@ class MainActivity : ComponentActivity() {
         CardView("#12 CheckBox, Dropdown menu", resources.getString(R.string.example_12),
             ComposeExampleCheckBoxDropDownMenuActivity::class.java, "example_12.html"
         )
+
+        CardView("#13 Card, Animation", resources.getString(R.string.example_13),
+            ComposeExampleCardAndAnimationActivity::class.java, "example_13.html"
+        )
     }
 
 

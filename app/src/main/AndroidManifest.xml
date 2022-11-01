@@ -13,6 +13,11 @@
         android:theme="@style/Theme.QuickComposeTutorial">
 
         <activity
+            android:name=".ui.activity.ComposeExampleCardAndAnimationActivity"
+            android:exported="false"
+            android:theme="@style/Theme.QuickComposeTutorial" />
+
+        <activity
             android:name=".ui.activity.ComposeExampleCheckBoxDropDownMenuActivity"
             android:exported="false"
             android:theme="@style/Theme.QuickComposeTutorial" />

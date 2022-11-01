@@ -137,6 +137,9 @@ class ComposeExampleScaffoldActivity : ComponentActivity() {
 
     @Composable
     fun bottomBarView(){
+        val defaultColor  = Color.LightGray
+        val selectedColor = Color.Yellow
+
         var selectedIndx = remember{ mutableStateOf(0)}
         BottomNavigation(backgroundColor = themeColor){
             BottomNavigationItem(
@@ -145,16 +148,20 @@ class ComposeExampleScaffoldActivity : ComponentActivity() {
                 selected = selectedIndx.value == 0,
                 onClick = {
                     selectedIndx.value = 0
-                }
+                },
+                selectedContentColor   = selectedColor,
+                unselectedContentColor = defaultColor
             )
 
             BottomNavigationItem(
-                icon = { Icon(imageVector = Icons.Filled.Call, contentDescription = "") },
+                icon = { Icon(imageVector = Icons.Filled.Call,  contentDescription = "") },
                 label = { Text("call") },
                 selected = selectedIndx.value == 1,
                 onClick = {
                     selectedIndx.value = 1
-                }
+                },
+                selectedContentColor   = selectedColor,
+                unselectedContentColor = defaultColor
             )
         }
     }
