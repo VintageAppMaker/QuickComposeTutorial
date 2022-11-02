@@ -163,8 +163,6 @@ class MainActivity : ComponentActivity() {
         )
     }
 
-
-
     @Composable
     fun CardView(title: String, desc : String, clsLaunch: Class<*>, launchFile : String  ) {
 
