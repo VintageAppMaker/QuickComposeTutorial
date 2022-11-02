@@ -153,6 +153,10 @@ class MainActivity : ComponentActivity() {
         CardView("#13 Card, Animation", resources.getString(R.string.example_13),
             ComposeExampleCardAndAnimationActivity::class.java, "example_13.html"
         )
+
+        CardView("#14 Launch Effect", resources.getString(R.string.example_14),
+            ComposeExampleLaunchEffectActivity::class.java, "example_14.html"
+        )
     }
 
 

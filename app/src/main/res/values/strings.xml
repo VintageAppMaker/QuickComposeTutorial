@@ -97,6 +97,16 @@
 
     </string>
 
+    <string name="example_14" tools:ignore="ExtraTranslation">
+#14 LaunchEffect 외\n
+1. @Composible 함수 내에 Composible 코드사용불가한 함수\n
+2. Composible(화면생성) 주기를 이용하여 로직을 구현함이 목적\n
+3. corutine과 noncorutine 함수로 분류\n
+4. Composible(화면생성) 빈도와 시기에 따라 제공되는 함수들\n
+
+
+    </string>
+
 
     <string name="title_activity_compose_example_row_col_main">ComposeExampleRowColMainActivity
     </string>
