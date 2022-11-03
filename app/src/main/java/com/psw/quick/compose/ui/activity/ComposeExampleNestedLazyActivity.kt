@@ -6,8 +6,6 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.*
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.material.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -15,13 +13,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalConfiguration
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.google.accompanist.flowlayout.FlowColumn
 import com.google.accompanist.flowlayout.FlowMainAxisAlignment
 import com.google.accompanist.flowlayout.FlowRow
 import com.google.accompanist.flowlayout.SizeMode
@@ -63,8 +59,14 @@ class ComposeExampleNestedLazyActivity : ComponentActivity() {
         LazyColumn(modifier = Modifier.fillMaxSize()) {
 
             // Header
-            item {
-                Text("List Test", style = TextStyle(fontSize = 30.sp, color = Color.Black))
+            stickyHeader(key = "List") {
+                Text("List Test",
+                    style = TextStyle(fontSize = 30.sp, color = Color.White),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .background( Color.Black.copy(alpha = 0.7f)),
+                    textAlign = TextAlign.Center
+                )
             }
 
             // ex1) list를 items로 처리함
@@ -74,8 +76,14 @@ class ComposeExampleNestedLazyActivity : ComponentActivity() {
             })
 
             // Header
-            item {
-                Text("LazyRow Test", style = TextStyle(fontSize = 30.sp, color = Color.Black))
+            stickyHeader(key = "Row") {
+                Text("Row Test",
+                    style = TextStyle(fontSize = 30.sp, color = Color.White),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .background( Color.Red.copy(alpha = 0.7f)),
+                    textAlign = TextAlign.Center
+                )
             }
 
             // ex2) item로 둘러쌓은 후, LazyRow를 사용하여 list 처리
@@ -97,8 +105,14 @@ class ComposeExampleNestedLazyActivity : ComponentActivity() {
             }
 
             // Header
-            item {
-                Text("Grid Test", style = TextStyle(fontSize = 30.sp, color = Color.Black))
+            stickyHeader(key = "Grid") {
+                Text("Grid Test",
+                    style = TextStyle(fontSize = 30.sp, color = Color.White),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .background( Color.Blue.copy(alpha = 0.7f)),
+                    textAlign = TextAlign.Center
+                )
             }
 
             // 제공되는 Grid가 아직까지 실험상태에 있다. 그래서
@@ -112,7 +126,9 @@ class ComposeExampleNestedLazyActivity : ComponentActivity() {
                         Card(modifier = Modifier
                             .size(gridSize)
                             .padding(5.dp), backgroundColor = Color.LightGray){
-                            Box(modifier = Modifier.fillMaxSize().background(Color.Red)) {
+                            Box(modifier = Modifier
+                                .fillMaxSize()
+                                .background(Color.Red)) {
                                 Text("${item}",
                                     style = TextStyle(color = Color.White),
                                     modifier =Modifier.align(Alignment.Center),
