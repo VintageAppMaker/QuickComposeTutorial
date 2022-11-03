@@ -164,6 +164,10 @@ class MainActivity : ComponentActivity() {
         CardView("#16 NestedScroll, Lazy", resources.getString(R.string.example_16),
             ComposeExampleNestedLazyActivity::class.java, "example_16.html"
         )
+
+        CardView("#17 AndroidView", resources.getString(R.string.example_17),
+            ComposeExampleSourceViewActivity::class.java, "example_17.html"
+        )
     }
 
     @Composable

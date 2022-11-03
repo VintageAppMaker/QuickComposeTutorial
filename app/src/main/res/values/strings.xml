@@ -125,6 +125,12 @@
 
     </string>
 
+    <string name="example_17" tools:ignore="ExtraTranslation">
+#17 AndroidView\n
+1. JetpackCompose에서 Native View를 사용\n
+2. factory(생성), modifier(설정), update(화면갱신)을 제공함.\n
+
+    </string>
 
     <string name="title_activity_compose_example_row_col_main">ComposeExampleRowColMainActivity
     </string>

@@ -19,7 +19,7 @@ class ComposeExampleSourceViewActivity : ComponentActivity() {
     var filename = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        filename = intent.getStringExtra("file") ?: ""
+        filename = intent.getStringExtra("file") ?: "example_17.html" // this 파일소스
         setContent {
             QuickComposeTutorialTheme {
                 // A surface container using the 'background' color from the theme
@@ -49,11 +49,8 @@ class ComposeExampleSourceViewActivity : ComponentActivity() {
 
     @Composable
     fun showSourceFile(){
-        // Declare a string that contains a url
         val PATH = "file:///android_asset/"
 
-        // Adding a WebView inside AndroidView
-        // with layout as full screen
         AndroidView(factory = {
             WebView(it).apply {
                 layoutParams = ViewGroup.LayoutParams(
