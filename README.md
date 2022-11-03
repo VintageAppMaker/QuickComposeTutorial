@@ -65,4 +65,4 @@
 ~~~
 
 #### Content
-- [메인소스](.\app\src\main\java\com\psw\quick\compose\ui\mainActivity.kt)
+![](run.gif)
