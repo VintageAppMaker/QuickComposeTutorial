@@ -13,6 +13,11 @@
         android:theme="@style/Theme.QuickComposeTutorial">
 
         <activity
+            android:name=".ui.activity.ComposeExampleNestedLazyActivity"
+            android:exported="false"
+            android:theme="@style/Theme.QuickComposeTutorial" />
+
+        <activity
             android:name=".ui.activity.ComposeExampleViewModelActivity"
             android:exported="false"
             android:theme="@style/Theme.QuickComposeTutorial" />

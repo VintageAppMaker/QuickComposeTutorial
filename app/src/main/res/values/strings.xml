@@ -117,6 +117,14 @@
 
     </string>
 
+    <string name="example_16" tools:ignore="ExtraTranslation">
+#16 LazyColumn, LazyRow, FlowRow\n
+1. 대용량 데이터를 처리하는 View\n
+2. NestedScroll Layout 처리\n
+2. Grid처리하는 View는 아직 실험적임\n
+
+    </string>
+
 
     <string name="title_activity_compose_example_row_col_main">ComposeExampleRowColMainActivity
     </string>

@@ -2,7 +2,6 @@ package com.psw.quick.compose
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.*
@@ -160,6 +159,10 @@ class MainActivity : ComponentActivity() {
 
         CardView("#15 ViweModel", resources.getString(R.string.example_15),
             ComposeExampleViewModelActivity::class.java, "example_15.html"
+        )
+
+        CardView("#16 NestedScroll, Lazy", resources.getString(R.string.example_16),
+            ComposeExampleNestedLazyActivity::class.java, "example_16.html"
         )
     }
 
