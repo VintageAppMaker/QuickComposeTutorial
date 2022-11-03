@@ -1,7 +1,7 @@
 package com.psw.quick.compose.ui.activity
 
 import android.os.Bundle
-import android.widget.ProgressBar
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.*
@@ -17,7 +17,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
 import com.psw.quick.compose.ui.theme.QuickComposeTutorialTheme
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -48,6 +47,7 @@ class ExampleViewModel : ViewModel(){
                 (0..10).map { "data => $it" }
                     .toList()
             )
+
         }
     }
 
@@ -85,10 +85,15 @@ class ComposeExampleViewModelActivity : ComponentActivity() {
     }
 
     @Composable
-    fun ExampleMain(
-        exampleViewModel: ExampleViewModel = ExampleViewModel() // 최상위 Composable 함수에만 사용
+    fun ExampleMain( // 최상위 Composable 함수에만 사용
     ) {
         val scrStateCol  = rememberScrollState()
+
+        // jetpack 버전이 업그레이드되면서
+        // 내부에서 사용시 remember를 반드시 사용해야 한다.
+        val exampleViewModel: ExampleViewModel = remember {
+            ExampleViewModel()
+        }
 
         Column (modifier = Modifier
             .padding(20.dp)
@@ -98,7 +103,8 @@ class ComposeExampleViewModelActivity : ComponentActivity() {
         ){
 
             //  viewModel의 StateFlow값을 대기
-            when( val rst = exampleViewModel.actionState.collectAsState().value){
+            val rst = exampleViewModel.actionState.collectAsState().value
+            when(rst ){
                 is ExampleViewModel.ActionState.Nodata ->{
                     Text("데이터가 없습니다",
                         style = TextStyle(fontSize = 30.sp, color = Color.Black),
@@ -117,14 +123,14 @@ class ComposeExampleViewModelActivity : ComponentActivity() {
                     Text("결과",
                         style = TextStyle(color = Color.Black, fontSize = 30.sp ),
                         textAlign = TextAlign.Center)
-                    Divider(thickness = 3.dp)
+                    Divider(thickness = 3.dp, color = Color.LightGray)
 
                     // ActionState.Loaded로 넘겨진 데이터는
                     // data로 액세스 가능
                     rst.data.forEach {
                         Text("$it", style = TextStyle(color = Color.Black))
                     }
-                    Divider(thickness = 3.dp)
+                    Divider(thickness = 3.dp, color = Color.LightGray)
                 }
 
                 else -> {}
@@ -144,6 +150,7 @@ class ComposeExampleViewModelActivity : ComponentActivity() {
         LaunchedEffect(key1 = Unit){
             exampleViewModel.getData()
         }
+
     }
 
     @Composable
@@ -162,7 +169,7 @@ class ComposeExampleViewModelActivity : ComponentActivity() {
 
     @Composable
     private fun buildRestartButton(fnRestart : ()->Unit) {
-        Divider(thickness = 3.dp)
+        Divider(thickness = 3.dp, color = Color.LightGray)
         Spacer(modifier = Modifier.height(20.dp))
         Button(onClick = { fnRestart() }, colors = ButtonDefaults.buttonColors(backgroundColor = Color.White)) {
             Text("getData()",
