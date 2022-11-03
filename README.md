@@ -45,3 +45,24 @@
  
 ~~~
 
+6. Flutter보다 빠르고 상태관리, 디버깅이 편하다
+~~~kotlin
+ 
+ 🔈 속도는 개발자라면 느낄 수 있을 정도로 빠르다
+ 🔈 statful, stateless 관리가 비교적 편하다(remember 변수와 상태호이스팅).
+ 🔈 위의 이유로 앱의 속도저하가 발생하는 경우가 비교적 적다. 
+ 🔈 Flutter의 UI build시 발생되는 에러에 비해, 원인추적이 용이하다. 
+ 
+~~~
+
+7. 개발환경은 Flutter가 쾌적한 편이다.
+~~~kotlin
+ 
+ 🔈 메모리 사용량이 많아졌다
+ 🔈 Flutter의 개발환경 중 하나인 VSCode에 비해 상당히 무겁다.
+ 🔈 Flutter는 실시간 갱신이 잘되어 있으며, 결과물을 Desktop이나 Web으로도 확인가능하다.
+   
+~~~
+
+#### Content
+- [메인소스](.\app\src\main\java\com\psw\quick\compose\ui\mainActivity.kt)
