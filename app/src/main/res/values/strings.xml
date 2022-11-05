@@ -131,6 +131,15 @@
 2. factory(생성), modifier(설정), update(화면갱신)을 제공함.\n
 
     </string>
+    <string name="example_18" tools:ignore="ExtraTranslation">
+#18 Tab and Content\n
+1. (Scrollable)TabRow View를 사용\n
+2. HorizontalPager 사용.\n
+3. Accompanist 라이브러리 추가해야 함.\n
+
+
+    </string>
+
 
     <string name="title_activity_compose_example_row_col_main">ComposeExampleRowColMainActivity
     </string>

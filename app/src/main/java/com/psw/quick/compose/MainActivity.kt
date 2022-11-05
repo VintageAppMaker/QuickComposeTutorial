@@ -168,6 +168,10 @@ class MainActivity : ComponentActivity() {
         CardView("#17 AndroidView", resources.getString(R.string.example_17),
             ComposeExampleSourceViewActivity::class.java, "example_17.html"
         )
+
+        CardView("#18 Tab, ViewPager", resources.getString(R.string.example_18),
+            ComposeExampleTabAndContentActivity::class.java, "example_18.html"
+        )
     }
 
     @Composable
